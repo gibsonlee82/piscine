@@ -1,4 +1,4 @@
-#include <stdio.h>
+//#include <stdio.h>
 int	ft_str_is_uppercase(char *str)
 {
 	while (*str != '\0')
@@ -12,6 +12,7 @@ int	ft_str_is_uppercase(char *str)
 	return 1;
 }
 
+/*
 void	main(void)
 {
 	char *a = "DFSDF";
@@ -23,3 +24,4 @@ void	main(void)
 	printf("%s: %i\n", c, ft_str_is_uppercase(c));
 	printf("%s: %i\n", d, ft_str_is_uppercase(d));
 }
+*/
