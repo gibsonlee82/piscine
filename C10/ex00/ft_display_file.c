@@ -1,19 +1,19 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 1024  // Fixed-size buffer for reading file content
+#define BUF_SIZE 1024
 
 // Function to display error messages
 void	display_error(char *msg) 
 {
 	while (*msg)
 	{
-		write(2, msg, 1);  // Write each character to stderr
+		write(2, msg, 1);
 		msg++;
 	}
 }
 
-int	main(int	argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int fd;
 	ssize_t bytes_read;
@@ -22,23 +22,21 @@ int	main(int	argc, char **argv)
 	if (argc == 1)
 	{
 		display_error("File name missing\n");
-		return 1;
+		return (1);
 	}
 	else if (argc > 2)
 	{
 		display_error("Too many arguments\n");
-		return 1;
+		return (1);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		display_error("Cannot read file\n");
-		return 1;
+		return (1);
 	}
 	while ((bytes_read = read(fd, buffer, BUF_SIZE)) > 0)
-	{
 		write(1, buffer, bytes_read);
-	}
 	close(fd);
 	return (0);
 }
